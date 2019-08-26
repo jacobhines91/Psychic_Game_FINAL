@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Psychic Game</title>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+    <!-- I made the appropriate file structure but didnt actually use CSS as i did the easy assignment-->
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+<div class="jumbotron">
+    <h1 class="text-center">Psychic Game</h1>
+    <h3 class="text-center">The underwhelming product of my procrastination</h3>
+
+    <input type="text" id="input" maxlength="1" pattern="[A-Za-z]">
+    <button onclick="makeid(5)" id="button">Click me!</button>
+
+</div>
+<script>
+ var totalWins = 0;
+ var totalLosses = 0;
+
+function makeid(length) {
+
+   var input            = '';
+   var generated           = '';
+   var result           = 'No';
+   var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+   var charactersLength = characters.length;
+   for ( var i = 0; i < length; i++ ) {
+    generated += characters.charAt(Math.floor(Math.random() * charactersLength));
+   }
+
+   console.log(generated);
+
+   input = document.getElementById("input");
+
+   console.log(input.value);
+
+   if (generated.includes(input.value))
+   {
+       result = "Yes"
+   }
+
+   if (result === "Yes")
+   {
+       totalWins++;
+       totalWins = totalWins + 1;
+       totalWins += 1;
+   }
+   else 
+   {
+       totalLosses++;
+   }
+
+   alert(result + "\n" +"Total Wins: " + totalWins + "\n" + "Total Losses: " + totalLosses + "\n");
+}
+
+</script>
